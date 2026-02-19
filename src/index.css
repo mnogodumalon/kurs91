@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Custom semantic tokens */
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-subtle: var(--brand-subtle);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-mono-custom);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Brand: Deep indigo-violet */
+  --brand: oklch(0.45 0.20 264);
+  --brand-foreground: oklch(0.98 0 0);
+  --brand-subtle: oklch(0.96 0.025 264);
+
+  /* Status */
+  --success: oklch(0.52 0.17 148);
+  --success-foreground: oklch(0.98 0 0);
+  --warning: oklch(0.72 0.16 65);
+  --warning-foreground: oklch(0.15 0 0);
+
+  /* Typography */
+  --font-body: 'Space Grotesk', sans-serif;
+  --font-mono-custom: 'Space Mono', monospace;
+
+  /* Core palette — cool off-white base */
+  --background: oklch(0.975 0.004 264);
+  --foreground: oklch(0.16 0.02 264);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.16 0.02 264);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.16 0.02 264);
+  --primary: oklch(0.45 0.20 264);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.96 0.015 264);
+  --secondary-foreground: oklch(0.30 0.04 264);
+  --muted: oklch(0.96 0.008 264);
+  --muted-foreground: oklch(0.52 0.04 264);
+  --accent: oklch(0.94 0.03 264);
+  --accent-foreground: oklch(0.30 0.08 264);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.90 0.012 264);
+  --input: oklch(0.92 0.01 264);
+  --ring: oklch(0.45 0.20 264);
+
+  /* Charts */
+  --chart-1: oklch(0.45 0.20 264);
+  --chart-2: oklch(0.60 0.18 195);
+  --chart-3: oklch(0.68 0.16 148);
+  --chart-4: oklch(0.72 0.16 65);
+  --chart-5: oklch(0.62 0.20 30);
+
+  /* Sidebar — deep navy */
+  --sidebar: oklch(0.22 0.06 264);
+  --sidebar-foreground: oklch(0.90 0.02 264);
+  --sidebar-primary: oklch(0.58 0.20 264);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.30 0.06 264);
+  --sidebar-accent-foreground: oklch(0.95 0.02 264);
+  --sidebar-border: oklch(0.32 0.05 264);
+  --sidebar-ring: oklch(0.58 0.20 264);
+
+  /* Custom design tokens */
+  --gradient-brand: linear-gradient(135deg, oklch(0.45 0.20 264), oklch(0.52 0.22 285));
+  --gradient-hero: linear-gradient(160deg, oklch(0.22 0.06 264) 0%, oklch(0.38 0.14 264) 100%);
+  --gradient-card: linear-gradient(160deg, oklch(1 0 0) 0%, oklch(0.97 0.012 264) 100%);
+  --shadow-card: 0 1px 3px oklch(0.45 0.20 264 / 0.06), 0 4px 16px oklch(0.45 0.20 264 / 0.05);
+  --shadow-brand: 0 8px 24px -6px oklch(0.45 0.20 264 / 0.4);
+  --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-body);
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-body);
+    letter-spacing: -0.03em;
+  }
+  .font-mono-custom {
+    font-family: var(--font-mono-custom);
+  }
+  .gradient-brand {
+    background: var(--gradient-brand);
+  }
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-brand {
+    box-shadow: var(--shadow-brand);
+  }
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  /* Stat card accent strips */
+  .stat-brand { border-left: 3px solid oklch(0.45 0.20 264); }
+  .stat-teal  { border-left: 3px solid oklch(0.60 0.18 195); }
+  .stat-green { border-left: 3px solid oklch(0.52 0.17 148); }
+  .stat-amber { border-left: 3px solid oklch(0.72 0.16 65); }
+  .stat-rose  { border-left: 3px solid oklch(0.62 0.20 30); }
+
+  /* Badge variants */
+  .badge-paid {
+    background: oklch(0.52 0.17 148 / 0.12);
+    color: oklch(0.38 0.14 148);
+    border: 1px solid oklch(0.52 0.17 148 / 0.25);
+  }
+  .badge-unpaid {
+    background: oklch(0.577 0.245 27.325 / 0.10);
+    color: oklch(0.45 0.22 27);
+    border: 1px solid oklch(0.577 0.245 27.325 / 0.25);
+  }
+  .badge-brand {
+    background: oklch(0.45 0.20 264 / 0.10);
+    color: oklch(0.38 0.18 264);
+    border: 1px solid oklch(0.45 0.20 264 / 0.25);
+  }
+}
